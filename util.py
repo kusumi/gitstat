@@ -6,8 +6,8 @@ import subprocess
 import sys
 import termios
 
-def popen_hg(*args):
-    l = ["hg"]
+def popen_git(*args):
+    l = ["git"]
     l.extend(args)
     p = subprocess.Popen(l, stdout=subprocess.PIPE)
     for x in p.stdout.readlines():
@@ -15,10 +15,10 @@ def popen_hg(*args):
         if len(ret):
             yield ret
 
-def popen_hglog(*args):
+def popen_gitlog(*args):
     l = ["log"]
     l.extend(args)
-    return popen_hg(*l)
+    return popen_git(*l)
 
 def get_size():
     try:

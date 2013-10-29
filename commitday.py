@@ -8,9 +8,9 @@ if __name__ == '__main__':
     test_date, sort, graph = util.parse_option()
     days = list(calendar.day_abbr)
     d = dict([(x, 0) for x in days])
-    r = re.compile(r"^(\d{4}-\d{2}-\d{2}) (\S+) ")
+    r = re.compile(r"^(\d{4}-\d{2}-\d{2}) (\S+), ")
 
-    for x in util.popen_hglog("--template", "{date|shortdate} {date|date}\n"):
+    for x in util.popen_gitlog("--date=short", "--pretty=format:%cd %cD"):
         m = r.match(x)
         if m:
             date, day = m.groups()

@@ -6,9 +6,9 @@ if __name__ == '__main__':
 
     test_date, sort, graph = util.parse_option()
     d = dict([(x, 0) for x in range(24)])
-    r = re.compile(r"^(\d{4}-\d{2}-\d{2}) (\d+):\d+ ")
+    r = re.compile(r"^(\d{4}-\d{2}-\d{2}) (\d+):\d+:\d+ ")
 
-    for x in util.popen_hglog("--template", "{date|isodate}\n"):
+    for x in util.popen_gitlog("--pretty=format:%ci"):
         m = r.match(x)
         if m:
             date = m.groups()[0]
