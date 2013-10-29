@@ -1,11 +1,11 @@
-hgstat
+gitstat
 ======
 
 ## Usage
 
 ### commitmonth.py
 
-    [root@localhost hgstat]# ./commitmonth.py -h
+    [root@localhost gitstat]# ./commitmonth.py -h
     Usage: commitmonth.py [options]
 
     Options:
@@ -17,7 +17,7 @@ hgstat
 
 ### commithour.py
 
-    [root@localhost hgstat]# ./commithour.py -h
+    [root@localhost gitstat]# ./commithour.py -h
     Usage: commithour.py [options]
 
     Options:
@@ -29,7 +29,7 @@ hgstat
 
 ### commitday.py
 
-    [root@localhost hgstat]# ./commitday.py -h
+    [root@localhost gitstat]# ./commitday.py -h
     Usage: commitday.py [options]
 
     Options:
@@ -41,7 +41,7 @@ hgstat
 
 ### annotatemonth.py
 
-    [root@localhost hgstat]# ./annotatemonth.py -h
+    [root@localhost gitstat]# ./annotatemonth.py -h
     Usage: annotatemonth.py [options]
 
     Options:
