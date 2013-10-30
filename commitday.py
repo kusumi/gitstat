@@ -42,4 +42,4 @@ if __name__ == '__main__':
         print("%3s %5d %4.1f[%%]%s" % (k, v, p, b)) # 17
 
     print('-' * 40)
-    print("    %5d changesets" % tot)
+    print("    %5d commits" % tot)

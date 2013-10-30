@@ -70,4 +70,4 @@ if __name__ == '__main__':
             print('')
 
     print('-' * 40)
-    print("        %7d lines from %d changesets" % (tot, len(set(c))))
+    print("        %7d lines from %d commits" % (tot, len(set(c))))
