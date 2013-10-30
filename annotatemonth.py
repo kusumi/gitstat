@@ -10,7 +10,7 @@ if __name__ == '__main__':
     c = []
 
     # e.g. e5935bdb        (      root     2013-09-04      41)
-    r = re.compile(r"(\S+)\s+\(\s+\S+\s+(\d{4}-\d{2}-\d{2})")
+    r = re.compile(r"(\S+)\s+\(.*\s+(\d{4}-\d{2}-\d{2})")
 
     for f in util.popen_git("ls-files"):
         for x in util.popen_git("blame", "-c", "--date=short", f):
