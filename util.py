@@ -15,7 +15,7 @@ def popen_git(*args):
         if len(ret):
             yield ret
 
-def popen_gitlog(*args):
+def popen_git_log(*args):
     l = ["log"]
     l.extend(args)
     return popen_git(*l)

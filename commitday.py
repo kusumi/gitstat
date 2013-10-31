@@ -10,7 +10,7 @@ if __name__ == '__main__':
     d = dict([(x, 0) for x in days])
     r = re.compile(r"^(\d{4}-\d{2}-\d{2}) (\S+), ")
 
-    for x in util.popen_gitlog("--date=short", "--pretty=format:%cd %cD"):
+    for x in util.popen_git_log("--date=short", "--pretty=format:%cd %cD"):
         m = r.match(x)
         if m:
             date, day = m.groups()
