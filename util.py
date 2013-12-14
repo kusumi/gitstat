@@ -16,7 +16,7 @@ def popen_git(*args):
             yield ret
 
 def popen_git_log(*args):
-    l = ["log"]
+    l = ["log", "--all"]
     l.extend(args)
     return popen_git(*l)
 
