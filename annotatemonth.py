@@ -6,16 +6,20 @@ if __name__ == '__main__':
     import util
 
     test_date, sort, graph = util.parse_option()
+    ignore_blank = False
     d = {}
     c = []
 
     # e.g. e5935bdb        (      root     2013-09-04      41)
-    r = re.compile(r"(\S+)\s+\(.*\s+(\d{4}-\d{2}-\d{2})")
+    r = re.compile(r"(\S+)\s+\(.*\s+(\d{4}-\d{2}-\d{2})\s+\d+\)(.*)")
 
     for f in util.popen_git("ls-files"):
         for x in util.popen_git("blame", "-c", "--date=short", f):
             m = r.match(x)
             if m:
+                s = m.group(3).strip()
+                if ignore_blank and not s:
+                    continue
                 k = m.group(2)
                 if test_date(k):
                     c.append(m.group(1))
