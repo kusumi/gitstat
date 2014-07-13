@@ -14,6 +14,7 @@ gitstat
       --before=YYYY-MM(-DD)
       --sort                
       --graph               requires ioctl(TIOCGWINSZ)
+      --branch=BRANCH
 
 ### commithour.py
 
@@ -26,6 +27,7 @@ gitstat
       --before=YYYY-MM(-DD)
       --sort                
       --graph               requires ioctl(TIOCGWINSZ)
+      --branch=BRANCH
 
 ### commitday.py
 
@@ -38,6 +40,7 @@ gitstat
       --before=YYYY-MM(-DD)
       --sort                
       --graph               requires ioctl(TIOCGWINSZ)
+      --branch=BRANCH
 
 ### annotatemonth.py
 
@@ -50,6 +53,7 @@ gitstat
       --before=YYYY-MM(-DD)
       --sort                
       --graph               requires ioctl(TIOCGWINSZ)
+      --branch=BRANCH
 
 ## Examples
 
