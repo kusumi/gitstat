@@ -5,12 +5,13 @@ if __name__ == '__main__':
     import re
     import util
 
-    test_date, sort, graph = util.parse_option()
+    test_date, sort, graph, branch = util.parse_option()
     days = list(calendar.day_abbr)
     d = dict([(x, 0) for x in days])
     r = re.compile(r"^(\d{4}-\d{2}-\d{2}) (\S+), ")
 
-    for x in util.popen_git_log("--date=short", "--pretty=format:%cd %cD"):
+    opts = [branch, "--date=short", "--pretty=format:%cd %cD"]
+    for x in util.popen_git_log(*opts):
         m = r.match(x)
         if m:
             date, day = m.groups()

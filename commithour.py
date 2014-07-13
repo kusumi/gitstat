@@ -4,11 +4,12 @@ if __name__ == '__main__':
     import re
     import util
 
-    test_date, sort, graph = util.parse_option()
+    test_date, sort, graph, branch = util.parse_option()
     d = dict([(x, 0) for x in range(24)])
     r = re.compile(r"^(\d{4}-\d{2}-\d{2}) (\d+):\d+:\d+ ")
 
-    for x in util.popen_git_log("--pretty=format:%ci"):
+    opts = [branch, "--pretty=format:%ci"]
+    for x in util.popen_git_log(*opts):
         m = r.match(x)
         if m:
             date = m.group(1)

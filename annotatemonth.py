@@ -5,7 +5,7 @@ if __name__ == '__main__':
     import sys
     import util
 
-    test_date, sort, graph = util.parse_option()
+    test_date, sort, graph, branch = util.parse_option()
     ignore_blank = False
     d = {}
     c = []

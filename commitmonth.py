@@ -4,10 +4,11 @@ if __name__ == '__main__':
     import sys
     import util
 
-    test_date, sort, graph = util.parse_option()
+    test_date, sort, graph, branch = util.parse_option()
     d = {}
 
-    for x in util.popen_git_log("--date=short", "--pretty=format:%cd"):
+    opts = [branch, "--date=short", "--pretty=format:%cd"]
+    for x in util.popen_git_log(*opts):
         if test_date(x):
             x = x[:-3] # cut -DD
             if x in d:

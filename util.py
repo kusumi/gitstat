@@ -16,7 +16,7 @@ def popen_git(*args):
             yield ret
 
 def popen_git_log(*args):
-    l = ["log", "--all"]
+    l = ["log"]
     l.extend(args)
     return popen_git(*l)
 
@@ -44,6 +44,7 @@ def parse_option():
     parser.add_option("--before", default='', metavar="YYYY-MM(-DD)")
     parser.add_option("--sort", action="store_true", default=False)
     parser.add_option("--graph", action="store_true", default=False, help="requires ioctl(TIOCGWINSZ)")
+    parser.add_option("--branch", default="master")
     opts, args = parser.parse_args()
 
     r = re.compile(r"^(\d{4}-\d{2}(-\d{2})?)$")
@@ -71,4 +72,9 @@ def parse_option():
                 (not ad and date < bd) or \
                 (not bd and date >= ad) or \
                 (ad <= date < bd)
-    return test_date, opts.sort, opts.graph
+
+    if opts.branch == "all":
+        branch = "--all"
+    else:
+        branch = opts.branch
+    return test_date, opts.sort, opts.graph, branch
