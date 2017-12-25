@@ -1,6 +1,7 @@
 #!/usr/bin/env python
 
 if __name__ == '__main__':
+    import datetime
     import sys
     import util
 
@@ -18,6 +19,18 @@ if __name__ == '__main__':
     if not d:
         print("No data")
         sys.exit(1)
+
+    # zero fill the gap between most recent and this month
+    t = datetime.datetime.today()
+    this = t.year, t.month
+    last = sorted(d)[-1] # most recent YY-MM
+    year, month = [int(x) for x in last.split("-")]
+    while this > (year, month):
+        month += 1
+        if month > 12:
+            year += 1
+            month = 1
+        d[u"%s-%s" % (year, month)] = 0
 
     l = d.values()
     tot = sum(l)
